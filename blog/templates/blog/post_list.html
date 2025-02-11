@@ -13,6 +13,11 @@
             <p>{{ form2.as_p }}</p>
             <p><input type="submit" value="アップロード"></p>
         </form>
+        <ul>
+            {% for id in ids %}
+                <li><a href="{% url 'image_detail' id=id %}">画像を登録したID: {{ id }}</a></li>
+            {% endfor %}
+        </ul>
     </div>
 </body>
 </html>

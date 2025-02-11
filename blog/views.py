@@ -57,7 +57,9 @@ def upload(request):
     else:
         image_form = ImageForm()
         weight_form = WeightsForm()
-    context = {"form1": image_form, "form2": weight_form}
+        all_objects = Book.objects.all()
+        ids = all_objects.values_list('id', flat=True)
+    context = {"form1": image_form, "form2": weight_form, "ids": ids}
     return render(request, "blog/post_list.html", context)
 
 def image_detail(request, id = 50):
